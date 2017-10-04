@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "342568012650",
+    "project_id": "agendapediatrica-2b1ed"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342568012650:android:0add6b9a52d4218f",
+        "android_client_info": {
+          "package_name": "py.fpuna.com.agendapediatricaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342568012650-gkglbvaeqqu3729959ng4lfkul4044qs.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "342568012650-ue37p4vconiqmvc1drbj1ub8afap0n8k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "py.fpuna.com.agendapediatricaapp",
+            "certificate_hash": "b6eb244bda35f07ca172701fee5ff871443c1552"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmvEqnj8rhR2NZ_BsZdBifhqb91cuILgY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
