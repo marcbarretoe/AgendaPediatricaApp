@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -19,6 +20,14 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.gson.Gson;
+import com.squareup.okhttp.Response;
+
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import py.fpuna.com.agendapediatricaapp.dto.UsuarioDTO;
 
 /**
  * Activity to demonstrate basic retrieval of the Google user's ID, email address, and basic
@@ -27,6 +36,7 @@ import com.google.android.gms.common.api.Status;
 public class SignInActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
+    public String host="http://localhost:8080";
 
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
@@ -123,8 +133,11 @@ public class SignInActivity extends AppCompatActivity implements
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
+            /*System.out.println("Mensaje "+result.getSignInAccount());*/
             mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
             updateUI(true);
+
+            goMainScreen(result);
         } else {
             // Signed out, show unauthenticated UI.
             updateUI(false);
@@ -223,5 +236,38 @@ public class SignInActivity extends AppCompatActivity implements
                 revokeAccess();
                 break;
         }
+    }
+
+    private void goMainScreen(GoogleSignInResult result) {
+
+        GoogleSignInAccount account = result.getSignInAccount();
+
+        MyHttpClient myHttpClient = new MyHttpClient();
+        String jsonString = null;
+
+        try {
+            jsonString =  myHttpClient.doPostRequest("agendapediatrica.usuarios/ValidarUsuario/", "cparedes.cabanas@gmail.com");/*account.getEmail()*/
+            /*System.out.println("Json valor: "+jsonString);*/
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(jsonString == null) {
+            Toast.makeText(this, "Ocurrio un problema al verificar el usuario", Toast.LENGTH_LONG).show();
+            return;
+        }else {
+            Gson gson = new Gson();
+            UsuarioDTO usuarioDTO  = gson.fromJson(jsonString, UsuarioDTO.class);
+
+            if (usuarioDTO.getValido() == Boolean.FALSE) {
+                Toast.makeText(this, "Usuario invalido", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            /*Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("idUsuario", usuarioDTO.getId());
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);*/
+        }
+
     }
 }
