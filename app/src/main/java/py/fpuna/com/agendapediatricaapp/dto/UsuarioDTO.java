@@ -15,6 +15,7 @@ public class UsuarioDTO implements Serializable {
     private String correo;
 
     private Boolean valido;
+    private String[] hijos;
 
     public Integer getId() {
         return id;

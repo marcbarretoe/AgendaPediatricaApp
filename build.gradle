@@ -7,6 +7,11 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.google.gms:google-services:3.0.0'
+        classpath 'com.google.code.gson:gson:2.8.0'
+        classpath "com.squareup.okhttp3:okhttp:3.2.0"
+        classpath "com.squareup.okhttp3:logging-interceptor:3.2.0"
+        classpath "com.squareup.okhttp3:okhttp-urlconnection:3.2.0"
+        //classpath "com.squareup.okhttp3:okhttp-FormBody:3.2.0"
 
 
         // NOTE: Do not place your application dependencies here; they belong

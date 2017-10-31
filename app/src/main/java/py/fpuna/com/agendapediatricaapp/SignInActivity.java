@@ -246,8 +246,9 @@ public class SignInActivity extends AppCompatActivity implements
         String jsonString = null;
 
         try {
-            jsonString =  myHttpClient.doPostRequest("agendapediatrica.usuarios/ValidarUsuario/", "cparedes.cabanas@gmail.com");/*account.getEmail()*/
-            /*System.out.println("Json valor: "+jsonString);*/
+            jsonString =  myHttpClient.doPostRequest2("agendapediatrica.usuarios/ValidarUsuario/", account.getEmail());
+            //jsonString =  MyHttpPostRequest().excute("agendapediatrica.usuarios/ValidarUsuario/", account.getEmail());
+            //System.out.println("Json valor: "+jsonString);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -263,10 +264,10 @@ public class SignInActivity extends AppCompatActivity implements
                 return;
             }
 
-            /*Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("idUsuario", usuarioDTO.getId());
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);*/
+            startActivity(intent);
         }
 
     }
