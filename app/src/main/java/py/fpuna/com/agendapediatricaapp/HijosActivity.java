@@ -13,7 +13,7 @@ import py.fpuna.com.agendapediatricaapp.adapter.HijosAdapter;
 import py.fpuna.com.agendapediatricaapp.apis.LoginData;
 import py.fpuna.com.agendapediatricaapp.dto.HijosDTO;
 import py.fpuna.com.agendapediatricaapp.dto.VacunaDTO;
-
+//Hijos Activity
 public class HijosActivity extends AppCompatActivity {
 
     RecyclerView  rv;
