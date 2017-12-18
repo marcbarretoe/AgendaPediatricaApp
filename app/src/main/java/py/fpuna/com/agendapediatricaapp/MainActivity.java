@@ -1,7 +1,6 @@
 package py.fpuna.com.agendapediatricaapp;
 
 import android.app.NotificationManager;
-import android.app.NotificationChannel;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -14,13 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
-/*import com.example.historialmedico.dto.HijoDTO;*/
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.lang.reflect.Type;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     NotificationCompat.Builder nCompatBuilder;
 
     public static final int notificationId = 001;
-
+/*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -157,19 +150,19 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
-
-
+    */
+/*
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
             // Dismiss the progress dialog
             progressBar.setVisibility(View.INVISIBLE);
-
+*/
             /**
              * Updating parsed JSON data into ListView
              * */
-            ListAdapter adapter = new SimpleAdapter(
+ /*           ListAdapter adapter = new SimpleAdapter(
                     MainActivity.this, contactList,
                     R.layout.list_item, new String[]{"name", "email",
                     "mobile"}, new int[]{R.id.name,
@@ -178,6 +171,6 @@ public class MainActivity extends AppCompatActivity {
             listView.setAdapter(adapter);
         }
 
-    }
+    }*/
 
 }

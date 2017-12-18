@@ -14,10 +14,10 @@
         completions."
     </string>
 
-<!-- String de google-->
+    <!-- String de google-->
 
 
-<!--<string name="app_name">Sign-In Quickstart</string>-->
+    <!--<string name="app_name">Sign-In Quickstart</string>-->
     <string name="title_text">Google Sign-In\nQuickstart</string>
 
     <!-- Sign-in status messages -->
@@ -72,8 +72,5 @@
          from https://console.developers.google.com/ -->
     <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
 
-    <!-- Activity Hijos -->
-    <string name="nombre"> </string>
-    <string name="edad"> </string>
-    <string name="sexo"> </string>
+
 </resources>
